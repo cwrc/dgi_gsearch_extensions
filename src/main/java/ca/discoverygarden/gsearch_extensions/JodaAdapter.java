@@ -96,4 +96,19 @@ public class JodaAdapter {
 	public static void addDateParser(int position, String format) {
 		parsers.add(position, DateTimeFormat.forPattern(format));
 	}
+
+
+  /**
+   * get the year segment of today's date
+   *
+   * @return
+   *  A string containing the 4 digit year
+   */
+  public static String getTodaysYear()
+  {
+    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy");
+    java.util.Date now = new java.util.Date();
+    return sdf.format(now);
+  }
+
 }
