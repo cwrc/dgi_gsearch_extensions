@@ -21,7 +21,81 @@ public class JodaAdapterTest extends TestCase {
 		
 		assertEquals(dest, JodaAdapter.transformForSolr(source));
 	}
+
+	public void testDMY() {
+		String source = "22 April 2013";
+		String dest = "2013-04-22T00:00:00.000Z";
+		
+		assertEquals(dest, JodaAdapter.transformForSolr(source));
+	}
+
+	public void testDMY_abv() {
+		String source = "22 Apr 2013";
+		String dest = "2013-04-22T00:00:00.000Z";
+		
+		assertEquals(dest, JodaAdapter.transformForSolr(source));
+	}
 	
+	
+	public void testDMY_French() {
+		String source = "22 avril 2013";
+		String dest = "2013-04-22T00:00:00.000Z";
+		
+		assertEquals(dest, JodaAdapter.transformForSolr(source));
+	}
+
+	public void testDMY_French_abv() {
+		String source = "22 févr. 2013";
+		String dest = "2013-02-22T00:00:00.000Z";
+		
+		assertEquals(dest, JodaAdapter.transformForSolr(source));
+	}
+	
+  public void testMY() {
+		String source = "February 2013";
+		String dest = "2013-02-01T00:00:00.000Z";
+		
+		assertEquals(dest, JodaAdapter.transformForSolr(source));
+	}
+
+  public void testMY_abv() {
+		String source = "Feb 2013";
+		String dest = "2013-02-01T00:00:00.000Z";
+		
+		assertEquals(dest, JodaAdapter.transformForSolr(source));
+	}
+
+	public void testMY_French() {
+		String source = "février 2013";
+		String dest = "2013-02-01T00:00:00.000Z";
+		
+		assertEquals(dest, JodaAdapter.transformForSolr(source));
+	}
+
+	public void testMY_French_abv() {
+		String source = "févr. 2013";
+		String dest = "2013-02-01T00:00:00.000Z";
+		
+		assertEquals(dest, JodaAdapter.transformForSolr(source));
+	}
+ 
+
+	public void testMDYComma() {
+		String source = "April 22, 2013";
+		String dest = "2013-04-22T00:00:00.000Z";
+		
+		assertEquals(dest, JodaAdapter.transformForSolr(source));
+	}
+
+	public void testMDYComma_french() {
+		String source = "avril 22, 2013";
+		String dest = "2013-04-22T00:00:00.000Z";
+		
+		assertEquals(dest, JodaAdapter.transformForSolr(source));
+	}
+
+
+
 	public void testISODate() {
 		String source = "2013-07-22";
 		String dest = "2013-07-22T00:00:00.000Z";

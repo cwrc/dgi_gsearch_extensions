@@ -1,6 +1,7 @@
 package ca.discoverygarden.gsearch_extensions;
 
 import java.util.Vector;
+import java.util.Locale;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.*;
@@ -23,9 +24,21 @@ public class JodaAdapter {
 		parsers.clear();
 		
 		// Setup base parsers.
+    // http://www.joda.org/joda-time/apidocs/index.html
+		parsers.add(ISODateTimeFormat.dateTimeParser().withZoneUTC());
+
+    parsers.add(DateTimeFormat.forPattern("d MMM y").withZoneUTC());
+		parsers.add(DateTimeFormat.forPattern("dd MMM yyyy").withLocale(Locale.FRANCE).withZoneUTC());
+    parsers.add(DateTimeFormat.forPattern("MMM y").withZoneUTC());
+		parsers.add(DateTimeFormat.forPattern("MMM y").withLocale(Locale.FRANCE).withZoneUTC());
+    
+    parsers.add(DateTimeFormat.forPattern("MMM d, y").withZoneUTC());
+		parsers.add(DateTimeFormat.forPattern("MMM d, y").withLocale(Locale.FRANCE).withZoneUTC());
+    parsers.add(DateTimeFormat.forPattern("MMM, y").withZoneUTC());
+		parsers.add(DateTimeFormat.forPattern("MMM, y").withLocale(Locale.FRANCE).withZoneUTC());
+
 		parsers.add(DateTimeFormat.forPattern("M/d/y").withZoneUTC());
 		parsers.add(DateTimeFormat.forPattern("M/d/y H:m").withZoneUTC());
-		parsers.add(ISODateTimeFormat.dateTimeParser().withZoneUTC());
 	}
 	
 	/**
