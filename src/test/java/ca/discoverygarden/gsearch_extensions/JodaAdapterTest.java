@@ -94,7 +94,12 @@ public class JodaAdapterTest extends TestCase {
 		assertEquals(dest, JodaAdapter.transformForSolr(source));
 	}
 
-
+	public void testISO_BCE() {
+		String source = "-9-10";
+		String dest = "-0009-10-01T00:00:00.000Z";
+		
+		assertEquals(dest, JodaAdapter.transformForSolr(source));
+	}
 
 	public void testISODate() {
 		String source = "2013-07-22";
@@ -116,7 +121,7 @@ public class JodaAdapterTest extends TestCase {
 
 		assertEquals(dest, JodaAdapter.transformForSolr(source));
 	}
-	
+
 	public void testUnparsable() {
 		assertEquals("", JodaAdapter.transformForSolr("2222-22-22"));
 	}

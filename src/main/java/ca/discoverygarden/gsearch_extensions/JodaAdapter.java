@@ -28,7 +28,7 @@ public class JodaAdapter {
 		parsers.add(ISODateTimeFormat.dateTimeParser().withZoneUTC());
 
     parsers.add(DateTimeFormat.forPattern("d MMM y").withZoneUTC());
-		parsers.add(DateTimeFormat.forPattern("dd MMM yyyy").withLocale(Locale.FRANCE).withZoneUTC());
+		parsers.add(DateTimeFormat.forPattern("dd MMM y").withLocale(Locale.FRANCE).withZoneUTC());
     parsers.add(DateTimeFormat.forPattern("MMM y").withZoneUTC());
 		parsers.add(DateTimeFormat.forPattern("MMM y").withLocale(Locale.FRANCE).withZoneUTC());
     
